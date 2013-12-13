@@ -1,6 +1,6 @@
 
 var riot = require("./riot"), // https://moot.it/riotjs/
-  template = require('fs').readFileSync('./template.html', "utf-8");
+  template = require('fs').readFileSync(__dirname + '/template.html', "utf-8");
 
 function BASE64(str) {
   return (new Buffer(str)).toString('base64');
