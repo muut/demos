@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Multiple instances | Moot demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- style -->
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+  <link rel="stylesheet" href="//cdn.moot.it/latest/moot.css">
+
+  <style>
+    body { margin: 0; font: normal 16px "open sans", "myriad pro", sans-serif; }
+    #content { max-width: 640px; margin: 30px auto; }
+    .comments { font-size: 80%; color: #777; text-decoration: none; }
+    .wrap { min-height: 30px; }
+  </style>
+
+  <!-- script -->
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//cdn.moot.it/latest/moot.min.js"></script>
+
+  <!-- Moot setup -->
+  <script>
+  $(function() {
+    $(".comments").click(function(e) {
+
+      // unload existing instance
+      if (moot()) moot().destroy();
+
+      // load a new instance
+      $(this).next().moot({
+        url: $(this).attr("href")
+      })
+
+      // prevent default link behaviour
+      e.preventDefault();
+
+    });
+  })
+  </script>
+</head>
+
+<body>
+
+  <div id="content">
+    <img src="//farm8.staticflickr.com/7369/9122252759_93a71eeb5c_z.jpg">
+    <a class="comments" href="https://playground.moot.it/i/goma/comments:pic1">Show comments</a>
+    <div class="wrap"></div>
+
+    <img src="//farm3.staticflickr.com/2187/3650519727_18f6bb81bd_z.jpg?zz=1">
+    <a class="comments" href="https://playground.moot.it/i/goma/comments:pic2">Show comments</a>
+    <div class="wrap"></div>
+
+    <img src="//farm4.staticflickr.com/3031/2646798174_1b044b0645_z.jpg">
+    <a class="comments" href="https://playground.moot.it/i/goma/comments:pic3">Show comments</a>
+    <div class="wrap"></div>
+  </div>
+
+</body>
