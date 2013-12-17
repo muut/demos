@@ -52,5 +52,5 @@ require('http').createServer(function(req, res) {
   res.write(riot.render(template, data));
   res.end();
 
-}).listen(8022);
+}).listen(80);
 
