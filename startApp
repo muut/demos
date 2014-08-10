@@ -1,0 +1,4 @@
+#!/bin/bash
+
+redis-server &
+NODE_PATH="/node/lib/node_modules/muut-demos/node_modules" node /src/node/server.js
