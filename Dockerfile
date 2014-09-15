@@ -3,7 +3,7 @@
 # VERSION 0.0.1
 
 # Building from Ubuntu Precise
-FROM muut/nodejs
+FROM muut/nodejs_legacy
 
 RUN apt-get -y install build-essential git
 
