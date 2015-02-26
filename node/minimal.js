@@ -1,7 +1,7 @@
 
 /* A minimal signed configuration */
 
-var riot = require("./riot"), // moot.it/riotjs
+var riot = require("./riot"), // muut.com/riotjs
   template = require('fs').readFileSync(__dirname + '/template.html', "utf-8");
 
 function BASE64(str) {

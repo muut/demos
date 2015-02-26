@@ -1,6 +1,6 @@
 
 var url = require('url'),
-    riot = require("./riot"), // moot.it/riotjs
+    riot = require("./riot"), // muut.com/riotjs
     template = require('fs').readFileSync(__dirname + '/template.html', "utf-8"),
 
   test_user = {

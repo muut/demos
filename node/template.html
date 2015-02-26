@@ -2,36 +2,35 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Signed configuration | Moot Demo</title>
+  <title>Signed embedding | Muut Demo</title>
   <meta name="viewport" content="width=device-width">
 
   <!-- style -->
   <link rel="stylesheet" type="text/css"
     href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 
-  <link rel="stylesheet" href="//cdn.moot.it/latest/moot.css">
+  <link rel="stylesheet" href="//cdn.muut.com/1/moot.css">
 
   <style>body { margin: 0; font: normal 16px "open sans", "myriad pro", sans-serif; }</style>
-
-  <!-- Script -->
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="//cdn.moot.it/latest/moot.min.js"></script>
-
-  <!-- Moot setup -->
-  <script>
-  $(function() {
-    $("#moot").moot({
-      api: {
-        key: "{key}",
-        timestamp: {timestamp},
-        message: "{message}",
-        signature: "{signature}"
-      }
-    });
-  });
-  </script>
 </head>
 
 <body>
-  <a id="moot" href="https://playground.moot.it/i/playground{path}">Moot playground</a>
+  <a id="my-community" href="https://muut.com/i/playground{path}">Muut playground</a>
+
+  <!-- Script -->
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//cdn.muut.com/1/moot.min.js"></script>
+
+  <!-- Muut setup -->
+  <script>
+  $("#my-community").muut({
+    api: {
+      key: "{key}",
+      timestamp: {timestamp},
+      message: "{message}",
+      signature: "{signature}"
+    }
+  });
+  </script>
+
 </body>
