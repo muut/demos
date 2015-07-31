@@ -1,0 +1,123 @@
+body {
+  font-size: 140%;
+  text-align: center;
+  font-family: garamond;
+  -moz-transition: background-color .3s .1s;
+  -webkit-transition: background-color .3s .1s;
+  transition: background-color .3s .1s
+}
+#content {
+  margin: 5em auto;
+  max-width: 660px;
+  text-align: left;
+  line-height: 1.5;
+  position: relative;
+  top: 0;
+  left: 0;
+  -moz-transition: left .3s .1s;
+  -webkit-transition: left .3s .1s;
+  transition: left .3s .1s;
+  padding: 0 0.6em 10em
+}
+.comment-count {
+  color: #777;
+  float: right;
+  position: relative;
+  top: 0.9em;
+  left: -0.9em;
+  display: none;
+  cursor: pointer;
+  -moz-transition: -moz-transform .2s;
+  -webkit-transition: -webkit-transform .2s;
+  transition: transform .2s
+}
+.comment-count:hover {
+  color: #333
+}
+.comment-count:before {
+  font-family: icon;
+  content: "R";
+  margin-right: .3em
+}
+.comment-count.typing:after {
+  position: absolute;
+  font-family: icon;
+  font-size: 80%;
+  color: #4bbd00;
+  margin: .2em 0 0 .4em;
+  content: "i"
+}
+.comment-count.added {
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2)
+}
+#drawer {
+  width: 30em;
+  position: fixed;
+  top: 0;
+  right: -35em;
+  background-color: #fff;
+  font-size: 80%;
+  text-align: left;
+  padding: 2.4em;
+  font-family: arvo;
+  overflow: auto;
+  height: 100%;
+  -moz-transition: .3s;
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0)
+}
+#drawer .comment-close {
+  position: fixed;
+  top: -3.5em;
+  right: 32em;
+  font-family: black3;
+  padding: 0.6em;
+  cursor: pointer;
+  opacity: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  -moz-transition: top .3s .3s, opacity .3s;
+  -webkit-transition: top .3s .3s, opacity .3s;
+  transition: top .3s .3s, opacity .3s
+}
+#drawer .comment-close:hover {
+  color: #262626
+}
+#drawer .comment-close:before {
+  font-family: icon;
+  content: "x";
+  margin-right: .3em;
+  font-size: 120%
+}
+body.with-comments {
+  background-color: #eee
+}
+body.with-comments #drawer {
+  right: 0;
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=1)
+}
+body.with-comments #drawer .comment-close {
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=1);
+  top: 0
+}
+body.with-comments #content {
+  left: -14em
+}
+@media (max-width: 700px) {
+  .with-comments {
+    overflow: hidden
+  }
+  #drawer {
+    font-size: 70%;
+    width: 22em
+  }
+  #drawer .comment-close {
+    box-shadow: none;
+    right: 24.2em
+  }
+}

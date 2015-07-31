@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Custom navigation</title>
+
+  <!-- optimize for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+
+  <!-- demo specific CSS -->
+  <style>
+    body {
+      font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+      font-size: 18px; margin: 0; padding: 0;
+    }
+
+    /* Poll styling inside "moot-footer" */
+    .moot-footer { font-size: 90%; border-top: 1px solid #ddd }
+    .moot-footer form { padding: 1em 0.4em }
+    .moot-footer h3 { font-weight: bold; margin: .5em 0; width: 200px }
+    .moot-footer label { display: block; margin-bottom: .2em; cursor: pointer }
+    .moot-footer input { margin-right: .5em; }
+    .moot-footer button { margin: 1em 0; }
+
+    /* Bauman exhibition ad */
+    #ad { margin-top: 2em }
+  </style>
+
+</head>
+
+<body>
+  <div id="content">
+
+    <div class="muut m-is-loading">
+
+      <a class="muut-url" href="https://muut.com/i/goma">Goma forums</a>
+
+      <!-- custom navigation -->
+      <div class="m-h3">Popular posts</div>
+
+      <a href="#!/gallery:the-gallery-cafeteria">The Gallery Cafeteria</a>
+      <a href="#!/classic-art:the-notebooks-of">Leonardo's Notebooks</a>
+      <a href="#!/gallery:goma-history">Goma History</a>
+
+      <img src="img/baumann.jpg" id="ad">
+
+      <!-- custom footer -->
+      <div class="moot-footer">
+
+        <!-- imaginary poll -->
+        <form>
+           <h3>What would you like to see more of in Goma in 2015?</h3>
+
+           <label><input type="radio" name="see" checked> Painting</label>
+           <label><input type="radio" name="see"> Photography</label>
+           <label><input type="radio" name="see"> Video</label>
+           <label><input type="radio" name="see"> Installation</label>
+           <label><input type="radio" name="see"> Performance</label>
+           <label><input type="radio" name="see"> Other</label>
+
+           <!-- the button does nothing -->
+           <button onClick="return false;">Submit</button>
+
+        <form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Custom headers in Muut forum</title>
+
+  <!-- optimize for mobile versions -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+
+  <!-- demo specific CSS -->
+  <style>
+    body {
+      font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+      font-size: 18px; margin: 0; padding: 0;
+    }
+
+    /*  banner styling */
+    .hidden { display: none; }
+
+    #banner h3 {
+      font-size: 180%;
+      font-weight: 100;
+    }
+    #banner .info {
+      display: inline-block;
+      vertical-align: top;
+      padding: .2em 0 0 1.2em;
+      width: 60%;
+    }
+    #banner img {
+      border-radius: 4px;
+      margin-bottom: 1.2em;
+      max-width: 15em;
+    }
+    #banner p {
+      margin: 0.4em 0 1em;
+      line-height: 1.3;
+    }
+    /* hide default channel title */
+    .m-pagepage .m-pagetitle {
+      display: none !important;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="banner-gallery" class="hidden">
+    <img src="https://farm4.staticflickr.com/3860/15035058236_308d8f11e5_m.jpg">
+    <div class="info">
+      <h3>GOMA Gallery</h3>
+      <p>
+        GoMA Gallery plays an important role in the city's heritage and way of life. Enjoy the Library, coffee shops, free internet access terminals and a collection of art books for loan.
+      </p>
+      <a href="#!/exhibitions:open-spaces-exhibition">More info</a>
+    </div>
+  </div>
+
+  <div id="banner-exhibitions" class="hidden">
+    <img src="https://c4.staticflickr.com/8/7327/16322277849_36e42322de_m.jpg">
+    <div class="info">
+      <h3>GOMA Exhibitions</h3>
+      <p>
+        GOMA aims to present a diverse range of exhibitions and Collection displays of local, national and international artists. Have a look at our travelling exhibitions too!
+      </p>
+      <a href="#!/exhibitions:video-installations-moving">More info</a>
+    </div>
+  </div>
+
+  <div id="banner-workshops" class="hidden">
+    <img src="https://farm6.staticflickr.com/5557/15052236072_15a1c518fd_m.jpg">
+    <div class="info">
+      <h3>GOMA Workshop</h3>
+      <p>
+        Create artwork inspired by the collection and temporary exhibitions. Learn new methods of art making with the guidance of international artists. Come along for sessions for all ages!
+      </p>
+      <a href="#!/exhibitions:video-installations-moving">More info</a>
+    </div>
+  </div>
+
+  <div id="banner-modern-art" class="hidden">
+    <img src="https://farm4.staticflickr.com/3836/15058043965_a85343860f_m.jpg">
+    <div class="info">
+      <h3>GOMA / Modern Art</h3>
+      <p>
+        GOMA's core mission is to gather international resources for the production and promotion of contemporary art, facilitating exchanges between artists from all over the world.
+      </p>
+      <a href="#!/exhibitions:open-spaces-exhibition">More info</a>
+    </div>
+  </div>
+
+  <div id="banner-classic-art" class="hidden">
+    <img src="https://farm6.staticflickr.com/5558/14867918038_0292b19c1d_m.jpg">
+    <div class="info">
+      <h3>GOMA / Classic Art</h3>
+      <p>
+        Goma also features numerous exhibitions of classic art and intends to capture the diversity, experimentation and excitement through the centuries.
+      </p>
+      <a href="#!/exhibitions:open-spaces-exhibition">More info</a>
+    </div>
+  </div>
+
+  <!-- muut client -->
+  <a class="muut" href="https://muut.com/i/goma/">The GOMA community (demo)</a>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
+
+
+
+  <script>
+  // runs this function when Muut is loaded
+  muut(function(app) {
+
+    // wrapper element for custom banner
+    var wrap = $('<div/>', { id: 'banner' }).prependTo($('.m-page', app.root))
+
+    // load custom banner content when channel is switched
+    app.on('load', function(page) {
+      var channelName = page.relativePath.replace(/[^\w-]/g, ''),
+          banner = $('#banner-' + channelName)
+
+      wrap.html(banner.html()).toggle(!!banner[0])
+    })
+  })
+  </script>
+
+</body>
+
+</html>

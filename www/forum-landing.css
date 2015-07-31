@@ -1,0 +1,54 @@
+body {
+  font-family: lato;
+  font-size: 18px;
+  color: #333
+}
+#main {
+  max-width: 38em;
+  margin: 4% auto
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+ul {
+  margin-bottom: 3em
+}
+li {
+  border-bottom: 1px solid #ddd;
+  padding: 1.2em 0 0.6em;
+  cursor: pointer
+}
+li:last-child {
+  border: 0
+}
+li:hover h3 {
+  color: #1FADC5
+}
+h2 {
+  margin: 0
+}
+h3 {
+  font-size: 110%;
+  font-weight: normal;
+  margin: 0;
+  color: #1B91A6
+}
+i {
+  float: right;
+  font-size: 80%;
+  color: #999;
+  font-style: normal;
+  margin-right: 1.2em
+}
+i:before {
+  font-family: icon;
+  content: "R"
+}
+p {
+  font-size: 90%;
+  line-height: 1.5;
+  color: #999;
+  margin: 0
+}

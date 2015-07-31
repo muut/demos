@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Multiple commenting areas on a single page</title>
+
+  <!-- Optimize for mobile versions -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Muut style -->
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+
+  <!-- Custom CSS -->
+  <style>
+  body {
+     font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+     font-size: 18px; margin: 0; padding: 0;
+  }
+  #content { max-width: 640px; margin: 30px auto; }
+  .comments { font-size: 80%; color: #777; text-decoration: none; }
+  .wrap { min-height: 30px; }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="content">
+    <img src="https://farm8.staticflickr.com/7369/9122252759_93a71eeb5c_z.jpg">
+    <a class="comments" href="https://muut.com/i/goma/comments:pic1">Show comments</a>
+    <div class="wrap"></div>
+
+    <img src="https://farm3.staticflickr.com/2187/3650519727_18f6bb81bd_z.jpg?zz=1">
+    <a class="comments" href="https://muut.com/i/goma/comments:pic2">Show comments</a>
+    <div class="wrap"></div>
+
+    <img src="https://farm4.staticflickr.com/3031/2646798174_1b044b0645_z.jpg">
+    <a class="comments" href="https://muut.com/i/goma/comments:pic3">Show comments</a>
+    <div class="wrap"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
+  <script>
+    $(".comments").click(function(e) {
+
+      // unload existing instance
+      if (muut()) muut().destroy()
+
+      // load a new instance
+      $(this).next().muut({
+        url: $(this).attr("href")
+      })
+
+      // prevent default link behaviour
+      e.preventDefault()
+
+    })
+  </script>
+
+</body>
+
+</html>

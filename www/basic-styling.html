@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Basic stlying of Muut Forums</title>
+
+  <!-- Optimize for mobile versions -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Muut style -->
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+
+  <!-- Page CSS -->
+  <style>
+    body {
+      font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+      font-size: 18px; margin: 0; padding: 0;
+    }
+    #controls { text-align: center; padding: .5em 0; }
+    #size { text-align: center; width: 4em; font-size: 14px }
+    #font { font-size: 100%; }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="controls">
+
+    <input id="size" name="size" type="number" value="18">
+
+    <select id="font" name="font">
+      <option>myriad pro</option>
+      <option>sans-serif</option>
+      <option>verdana</option>
+      <option>arial</option>
+      <option>garamond</option>
+      <option>tahoma</option>
+      <option>impact</option>
+      <option>times new roman</option>
+    </select>
+
+  </div>
+
+  <!-- (2) Placeholder tag for forums -->
+  <a class="muut" href="https://muut.com/i/goma">Muut forums</a>
+
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
+
+  <script>
+  $(function() {
+    var forum = $('.muut')
+
+    // size
+    $('#size').on('input', function() {
+      forum.css('fontSize', $(this).val() + 'px')
+    })
+
+    // fonts
+    $('#font').change(function() {
+      forum.css('fontFamily', $(this).val())
+    })
+  })
+  </script>
+
+</body>
+
+</html>

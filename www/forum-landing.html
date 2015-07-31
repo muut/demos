@@ -1,0 +1,68 @@
+<!doctype html>
+
+<head>
+  <title>Custom forum landing page</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="forum-landing.css">
+  <link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+</head>
+
+<body>
+
+  <main id="main">
+    <h2>Gallery of Modern Art</h2>
+
+    <ul>
+      <li channel="gallery">
+        <i></i><h3>Our gallery</h3>
+        <p>Lorem ipsum Deserunt ad elit laborum cupidatat exercitation in dolor consectetur aliqua quis cupidatat veniam fugiat.</p>
+      </li>
+      <li channel="exhibitions">
+        <i></i><h3>Exhibitions</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat possimus fuga provident tenetur quidem. Ab officia alias optio facilis nihil modi dolorum sequi, maxime expedita, consequatur, omnis ad nulla, veniam.</p>
+      </li>
+      <li channel="workshops">
+        <i></i><h3>Workshops</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem dolores neque officiis cumque incidunt eveniet earum ea voluptatibus maxime natus perspiciatis, quia aperiam vero eius, illo quibusdam. Inventore, natus incidunt.</p>
+      </li>
+    </ul>
+
+    <h2>Collections</h2>
+
+    <ul>
+      <li channel="modern-art">
+        <i></i><h3>Modern art</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex culpa facilis, modi facere, expedita cum quidem dolorum mollitia maiores quaerat, nisi, ipsam voluptatum perferendis! Itaque nam odit quod, ea excepturi?</p>
+      </li>
+      <li channel="classic-art">
+        <i></i><h3>Classic art</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam iste dolores nulla repellendus et error a dolore voluptates dolor cumque harum, saepe eligendi corporis perferendis, sequi, officia quasi tenetur necessitatibus!</p>
+      </li>
+    </ul>
+  </main>
+
+  <script src="https://muut.com/common/js/jquery-1.11.2.min.js"></script>
+
+  <script>
+    // fetch post counts
+    var url = 'https://api.muut.com/postcounts?';
+
+    $('li').map(function() {
+      url += '&path=/goma/' + $(this).attr('channel');
+    })
+
+    $.getJSON(url, function(json) {
+      $.each(json, function(path, data) {
+        var key = path.replace('/goma/', '')
+        $('[channel="' + key + '"] i').text(data.size)
+      })
+    })
+
+    // make items clickable
+    $('li').click(function() {
+        location.href = 'custom-headers.html#!/' + $(this).attr('channel')
+    })
+  </script>
+
+</body>

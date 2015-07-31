@@ -1,0 +1,41 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+body {
+  font-size: 18px;
+  font-family: ubuntu;
+  margin: 0;
+  padding: 0
+}
+header {
+  background-color: #0082d7;
+  padding: 10px 20px
+}
+header nav {
+  text-align: right;
+  max-width: 952px;
+  margin: 0 auto
+}
+header a {
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 0 15px
+}
+header .is-active {
+  color: #00a9ff
+}
+.m-navi a.m-selected {
+  background-color: #002741
+}
+.m-header {
+  background-color: #005b97
+}
+@media (min-width: 980px) {
+  .m-sidebar {
+    background-color: #002741
+  }
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Setting up Muut with JavaScript</title>
+
+  <!-- Optimize for mobile versions -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Muut style -->
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+
+  <!-- Page CSS -->
+  <style>
+  body {
+     font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+     font-size: 18px; margin: 0; padding: 0;
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Placeholder for forums -->
+  <div id="muut-forum"></div>
+
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
+
+  <!-- The JavaScript setup -->
+  <script>
+    $('#muut-forum').muut({ url: 'http://playground.moot.it/i/goma' })
+  </script>
+
+</body>
+
+</html>
