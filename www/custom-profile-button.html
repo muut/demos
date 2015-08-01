@@ -30,7 +30,7 @@
   <div id="content">
 
     <!-- Muut client -->
-    <a class="muut" href="https://muut.com/i/goma">The GOMA community (demo)</a>
+    <a class="muut" href="https://muut.com/i/goma">The GoMA community (demo)</a>
 
   </div>
 
@@ -48,7 +48,7 @@
 
         // insert custom button on user profile page
         if (page.type == 'user') {
-          btn = $('<button>').text('Click me').insertAfter('#m-user-profile').click(function() {
+          btn = $('<button>').text('A custom button').insertAfter('#m-user-profile').click(function() {
             var user = page.user
             alert(user.username)
           })

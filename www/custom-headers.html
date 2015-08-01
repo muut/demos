@@ -39,7 +39,7 @@
     #banner img {
       border-radius: 4px;
       margin-bottom: 1.2em;
-      max-width: 15em;
+      max-width: 13em;
     }
     #banner p {
       margin: 0.4em 0 1em;
@@ -55,10 +55,20 @@
 
 <body>
 
+  <div id="banner-all" class="hidden">
+    <img src="https://c1.staticflickr.com/9/8369/8529775981_e18941218e_n.jpg">
+    <div class="info">
+      <h3>GoMA</h3>
+      <p>
+        GoMA is a free, interactive gallery for offering drop-in programs and artist- and educator-led workshops to visitors of all ages, in conjunction with an exhibition or a topic related to modern and contemporary art.
+      </p>
+    </div>
+  </div>
+
   <div id="banner-gallery" class="hidden">
     <img src="https://farm4.staticflickr.com/3860/15035058236_308d8f11e5_m.jpg">
     <div class="info">
-      <h3>GOMA Gallery</h3>
+      <h3>GoMA Gallery</h3>
       <p>
         GoMA Gallery plays an important role in the city's heritage and way of life. Enjoy the Library, coffee shops, free internet access terminals and a collection of art books for loan.
       </p>
@@ -69,9 +79,9 @@
   <div id="banner-exhibitions" class="hidden">
     <img src="https://c4.staticflickr.com/8/7327/16322277849_36e42322de_m.jpg">
     <div class="info">
-      <h3>GOMA Exhibitions</h3>
+      <h3>GoMA Exhibitions</h3>
       <p>
-        GOMA aims to present a diverse range of exhibitions and Collection displays of local, national and international artists. Have a look at our travelling exhibitions too!
+        GoMA aims to present a diverse range of exhibitions and Collection displays of local, national and international artists. Have a look at our travelling exhibitions too!
       </p>
       <a href="#!/exhibitions:video-installations-moving">More info</a>
     </div>
@@ -80,7 +90,7 @@
   <div id="banner-workshops" class="hidden">
     <img src="https://farm6.staticflickr.com/5557/15052236072_15a1c518fd_m.jpg">
     <div class="info">
-      <h3>GOMA Workshop</h3>
+      <h3>GoMA Workshop</h3>
       <p>
         Create artwork inspired by the collection and temporary exhibitions. Learn new methods of art making with the guidance of international artists. Come along for sessions for all ages!
       </p>
@@ -91,9 +101,9 @@
   <div id="banner-modern-art" class="hidden">
     <img src="https://farm4.staticflickr.com/3836/15058043965_a85343860f_m.jpg">
     <div class="info">
-      <h3>GOMA / Modern Art</h3>
+      <h3>GoMA / Modern Art</h3>
       <p>
-        GOMA's core mission is to gather international resources for the production and promotion of contemporary art, facilitating exchanges between artists from all over the world.
+        GoMA's core mission is to gather international resources for the production and promotion of contemporary art, facilitating exchanges between artists from all over the world.
       </p>
       <a href="#!/exhibitions:open-spaces-exhibition">More info</a>
     </div>
@@ -102,7 +112,7 @@
   <div id="banner-classic-art" class="hidden">
     <img src="https://farm6.staticflickr.com/5558/14867918038_0292b19c1d_m.jpg">
     <div class="info">
-      <h3>GOMA / Classic Art</h3>
+      <h3>GoMA / Classic Art</h3>
       <p>
         Goma also features numerous exhibitions of classic art and intends to capture the diversity, experimentation and excitement through the centuries.
       </p>
@@ -111,7 +121,7 @@
   </div>
 
   <!-- muut client -->
-  <a class="muut" href="https://muut.com/i/goma/">The GOMA community (demo)</a>
+  <a class="muut" href="https://muut.com/i/goma/">The GoMA community (demo)</a>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="https://cdn.muut.com/1/moot.min.js"></script>
 
@@ -126,8 +136,10 @@
 
     // load custom banner content when channel is switched
     app.on('load', function(page) {
-      var channelName = page.relativePath.replace(/[^\w-]/g, ''),
+      var channelName = page.relativePath.replace(/[^\w-]/g, '') || 'all',
           banner = $('#banner-' + channelName)
+
+      console.info(channelName)
 
       wrap.html(banner.html()).toggle(!!banner[0])
     })

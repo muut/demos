@@ -1,49 +1,52 @@
 <!doctype html>
 
-<html>
+<html lang="en">
 
 <head>
 
-<meta charset="utf-8">
+  <meta charset="utf-8">
 
-<title>Forums · Demo · Muut</title>
+  <title>Ditch top navigation from Muut forums</title>
 
-<!-- Optimize for mobile versions -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Optimize for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- force latest IE rendering engine -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+  <!-- Page CSS -->
+  <style>
+    body {
+       font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+       font-size: 18px; margin: 0; padding: 0;
+    }
 
-<!-- Custom CSS -->
-<style>
-body {
-   font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
-   font-size: 18px; margin: 0; padding: 0;
-}
-.m-pc .m-navi, .m-no-logged a[href="#!/feed"] { display: none }
-.m-pc .m-subnavi { padding-left: 0 }
-</style>
+    /* show feed only when logged */
+    .m-pc .m-navi, .m-no-logged a[href="#!/feed"] { display: none }
+    .m-pc .m-subnavi { padding-left: 0 }
+  </style>
 
 </head>
 
 <body>
 
-<div id="content">
+  <div class="muut">
 
-<div class="muut">
-   <a class="muut-url" href="http://playground.moot.it/i/goma">Muut forums</a>
+    <a class="muut-url" href="http://muut.com/i/goma">Muut forums</a>
 
-  <div class="m-h3 m-forums-title">Discussions</div>
-  <a href="#!/">All posts</a>
-  <a href="#!/feed">My feed</a>
-  <a>Exhibitions</a>
-  <a>Gallery cafeteria</a>
+    <div class="m-h3 m-forums-title">Discussions</div>
 
-</div>
-<script src="//muut.com/e/muut/1.12.2/moot.min.js"></script>
-</div>
+    <!-- move top navi items to sidebar -->
+    <a href="#!/">All posts</a>
+    <a href="#!/feed">My feed</a>
 
+    <!-- forum specific channels -->
+    <a>Exhibitions</a>
+    <a>Gallery cafeteria</a>
+
+  </div>
+
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
 
 </body>
 

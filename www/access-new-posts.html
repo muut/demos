@@ -23,31 +23,40 @@
     font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
     font-size: 18px; margin: 0; padding: 0;
   }
+
+  .desc {
+    font-size: 80%;
+    text-align: center;
+    color: #999;
+    margin: 2em 0;
+  }
   </style>
 
 </head>
 
 <body>
 
-  <a class="muut m-is-loading" href="https://muut.com/i/goma">Muut forums</a>
+  <p class="desc">Look for HTML source code to see the API in action</p>
+
+  <a class="muut m-app-loading" href="https://muut.com/i/goma">Muut forums</a>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="https://cdn.muut.com/1/moot.min.js"></script>
 
   <script>
 
-  // called when the client is loaded
+  // This function is called when the client is loaded
   muut(function(app) {
 
-    // called whena a new page is loaded
+    // Called whena a new channel (category) is loaded
     app.page.on('moot', function(thread, is_new) {
 
-      // new thread was created
+      // A new thread was created
       if (is_new) {
         console.log('New thread created', thread)
 
       }
 
-      // new reply was created
+      // A new reply was created
       thread.on('reply', function(reply) {
         console.log('New reply created', reply)
       })
