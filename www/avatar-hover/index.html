@@ -1,0 +1,104 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Mouse-over profile information</title>
+
+  <!-- optimize for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- muut styling -->
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+
+  <!-- page specific CSS -->
+  <style>
+    body {
+       font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+       font-size: 18px; margin: 0; padding: 0;
+    }
+    .hgroup { text-align:center; color: #444; }
+    h3 { margin: -.8em 0 1.4em; font-weight: normal; color: #777; }
+
+    /* profile info looks */
+    #profile-info {
+      margin: 0;
+      left: 10em;
+      padding: 1em;
+      color: #444;
+    }
+
+    #profile-info:after {
+      left: 1em;
+      top: 99%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="hgroup">
+    <h2>Mouse-over profile information</h2>
+    <h3>Move your mouse over the avatars to see extra information</h3>
+  </div>
+
+  <!-- Muut client -->
+  <a class="muut" href="https://muut.com/i/goma">GoMA forums (demo)</a>
+
+  <!-- container for extra profile info -->
+  <div id="profile-info" class="m-help m-above"></div>
+
+  <!-- required scripts -->
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
+
+  <!-- extra info functionality -->
+  <script>
+  muut(function(app) {
+
+    var info = $('#profile-info')
+
+    app.root.click(function() {
+      info.hide()
+    })
+
+    function setPosition(el) {
+      var pos = el.offset()
+
+      info.css({
+        top: pos.top - info.outerHeight() - 10,
+        left: pos.left - 5
+      })
+    }
+
+    $('.muut').on('mouseenter mouseleave', '.m-facelink', function(e) {
+      if (e.toElement == info[0]) return
+
+      var el = $(e.target),
+          username = el.closest('.m-facelink').attr('href').slice(4)
+
+      // loading
+      info.toggle(e.type == 'mouseenter').html('loading&hellip;')
+      setPosition(el)
+
+      // load info with AJAX
+      $.get('profile-info.html', { username: username }, function(html) {
+        info.html(html)
+        setPosition(el)
+      })
+
+    })
+
+  })
+  </script>
+
+</body>
+
+</html>
