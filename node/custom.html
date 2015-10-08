@@ -11,26 +11,34 @@
 
   <link rel="stylesheet" href="//cdn.muut.com/1/moot.css">
 
-  <style>body { margin: 0; font: normal 16px "open sans", "myriad pro", sans-serif; }</style>
+  <style>
+  body { margin: 0; font: normal 16px "open sans", "myriad pro", sans-serif; }
+
+  /* hide online green dots */
+  .m-online:after { display: none; }
+  </style>
 </head>
 
 <body>
   <a id="my-community" href="https://muut.com/i/playground{path}">Muut playground</a>
 
   <!-- Script -->
-  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//code.jquery.com/jquery.min.js"></script>
   <script src="//cdn.muut.com/1/moot.min.js"></script>
 
   <!-- Muut setup -->
   <script>
-  $("#my-community").muut({
+  $('#my-community').muut({
+    widget: true,
+    show_online: false,
+
     api: {
-      key: "{key}",
+      key: '{key}',
       timestamp: {timestamp},
-      message: "{message}",
-      signature: "{signature}"
+      message: '{message}',
+      signature: '{signature}'
     }
-  });
+  })
   </script>
 
 </body>
