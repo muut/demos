@@ -310,29 +310,34 @@
   // channel expand / collapse script
   $(function() {
 
-    function clickGenre(link) {
+    var active = 'is-active'
 
+
+    function clickGenre(link) {
       var header = link.closest('h3'),
           genre = header.next()
 
-      if (genre.hasClass('is-active')) {
-        genre.removeClass('is-active')
+      if (genre.hasClass(active)) {
+        genre.removeClass(active)
         return false
 
       } else {
-        $('.m-custom .is-active').removeClass('is-active')
-        genre.addClass('is-active')
+        $('.m-custom ' + active).removeClass(active)
+        genre.addClass(active)
       }
     }
+
+
+    // Open a selected main channel on page load
+    muut().one('load', function() {
+      var genre = location.hash.split('/').slice(0, 2).join('/')
+      if (genre) clickGenre($("[href='" + genre + "']"))
+    })
 
     // When main channel is clicked
     $('.muut').on('click', '.m-custom h3 a', function() {
       clickGenre($(this))
     })
-
-    // Open a selected main channel on page load
-    var genre = location.hash.split('/').slice(0, 2).join('/')
-    if (genre) clickGenre($("[href='" + genre + "']").closest('h3'))
 
   })
   </script>
