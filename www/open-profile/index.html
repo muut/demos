@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Muut Commenting</title>
+
+  <!-- optimize for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- muut styling -->
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+
+  <!-- demo specific CSS -->
+  <style>
+  body {
+     font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+     font-size: 18px; margin: 0; padding: 0;
+  }
+  #content { margin: 0 auto; max-width: 640px; }
+  #hero-image { margin: 1em 0; max-width: 100% }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="content">
+
+    <!-- Something to comment -->
+    <img id="hero-image" src="../img/commenting@2x.jpg">
+
+    <!-- Muut client -->
+    <a class="muut" href="https://muut.com/i/goma/exhibitions:open-spaces-exhibition">Comments</a>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
+
+  <script>
+    function openWindow(url, width, height) {
+      var w = window,
+        left = (w.screenX || w.screenLeft) + ($(w).outerWidth() - width) / 2,
+        top = (w.screenY || w.screenTop) + 50,
+        opts = 'left=' +left+ ',top=' +top+ ',status=0,scrollbars=0,menubar=0'
+
+      w.open(url, 'moot_popup', opts + ',width=' +width+ ',height=' +height).focus()
+    }
+
+    $(document).on('click', '.m-facelink', function(e) {
+      e.preventDefault()
+
+      var face = $(e.target).closest('.m-facelink'),
+          username = (face.data('href') || face.attr('href')).slice(4),
+          user = muut().user
+
+      // Check if user is admin:
+      // if (username && (user.is_admin || user.is_moderator))
+
+      openWindow('forum.html#!/@' + username, 600, 650)
+
+    })
+  </script>
+
+</body>
+
+</html>
+
