@@ -35,7 +35,8 @@ String.prototype.has = function(str) {
 
 require('http').createServer(function(req, res) {
 
-  var path = url.parse(req.url, true).pathname,
+  var data = { key: 'testapikey', timestamp: Math.round(+new Date / 1000) },
+      path = url.parse(req.url, true).pathname,
       html = read('default.html'),
       message = {}
 
@@ -54,13 +55,7 @@ require('http').createServer(function(req, res) {
     if (str) html = str
   }
 
-  // signed config
-  var data = {
-    key: 'testapikey',
-    timestamp: Math.round(+new Date / 1000),
-    message: BASE64(JSON.stringify(message)),
-  }
-
+  data.message = BASE64(JSON.stringify(message))
   data.signature = SHA1('testapisecretkey' + ' ' + data.message + ' ' + data.timestamp)
 
   res.writeHeader(200, { 'Content-Type': 'text/html' })
