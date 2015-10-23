@@ -68,7 +68,9 @@ body {
   -webkit-transition: .3s;
   transition: .3s;
   opacity: 0;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0)
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
 }
 #drawer .comment-close {
   position: fixed;
@@ -78,10 +80,10 @@ body {
   padding: 0.6em;
   cursor: pointer;
   opacity: 0;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   -moz-transition: top .3s .3s, opacity .3s;
   -webkit-transition: top .3s .3s, opacity .3s;
-  transition: top .3s .3s, opacity .3s
+  transition: top .3s .3s, opacity .3s;
+  color: #bbb
 }
 #drawer .comment-close:hover {
   color: #262626
@@ -98,11 +100,9 @@ body.with-comments {
 body.with-comments #drawer {
   right: 0;
   opacity: 1;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=1)
 }
 body.with-comments #drawer .comment-close {
   opacity: 1;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=1);
   top: 0
 }
 body.with-comments #content {

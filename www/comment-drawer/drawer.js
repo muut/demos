@@ -20,7 +20,7 @@ $(function() {
   app.one('load', function(page) {
 
     $.each(page, function(i, thread) {
-      comment_count += thread.reply_count + 1
+      comment_count += thread.reply_count
 
       // user is typing...
       thread.on('type', function() {
