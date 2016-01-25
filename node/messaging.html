@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Muut messaging</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="//cdn.muut.com/1/moot.css">
+  <link rel="stylesheet" href="//cdn.muut.com/1/muut-messaging.css">
+  <style>body { margin: 0; font: normal 16px "myriad pro", sans-serif; }</style>
+</head>
+
+<body>
+
+  <h1 style="padding: 2em; text-align:center">SSO &amp; messaging <small>(on corner)</small></h1>
+
+  <span class="muut-messaging">Messages</span>
+
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="//cdn.muut.com/1/moot.min.js"></script>
+  <script src="//cdn.muut.com/1/muut-messaging.min.js"></script>
+
+  <script>
+  muut.messaging({
+    url: 'playground',
+
+    api: {
+      key: "{key}",
+      timestamp: {timestamp},
+      message: "{message}",
+      signature: "{signature}"
+    }
+  })
+  </script>
+
+</body>
+
+</html>
