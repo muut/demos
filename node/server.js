@@ -51,7 +51,8 @@ require('http').createServer(function(req, res) {
   else if (path.has('comment')) data.path = '/comments'
   else if (path.length > 2) {
     message.user = test_user
-    var str = read(path.slice(1, -1) + '.html')
+    path = path.split('/').slice(-1)[0] + '.html'
+    var str = read(path)
     if (str) html = str
   }
 
