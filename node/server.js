@@ -43,18 +43,21 @@ require('http').createServer(function(req, res) {
   // favicon
   if (path.has('favicon')) return res.end()
 
-  // SSO user
-  if (path.has('sso')) message.user = path.has('anon') ? {} : test_user
 
   // commenting? (unrelated to SSO / signed config)
   if (path.has('flat')) data.path = '/comments:my-key'
   else if (path.has('comment')) data.path = '/comments'
   else if (path.length > 2) {
     message.user = test_user
-    path = path.split('/').slice(-1)[0] + '.html'
-    var str = read(path)
+    var pth = path.split('/').slice(-1)[0] + '.html'
+    var str = read(pth)
     if (str) html = str
   }
+
+  // SSO user
+  if (path.has('sso')) message.user = test_user
+  if (path.has('anon')) delete message.user
+
 
   data.message = BASE64(JSON.stringify(message))
   data.signature = SHA1('testapisecretkey' + ' ' + data.message + ' ' + data.timestamp)
