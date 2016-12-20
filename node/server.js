@@ -1,7 +1,9 @@
 
 var fs = require('fs'),
-    url = require('url'),
-    riot = require('./riot')
+  url = require('url'),
+  riot = require('./riot'),
+  is_local = require('os').type() == 'Darwin'
+
 
 var test_user = {
   id: 'johndoe',
@@ -37,7 +39,8 @@ require('http').createServer(function(req, res) {
 
   var data = { key: 'testapikey', timestamp: Math.round(+new Date / 1000) },
       path = url.parse(req.url, true).pathname,
-      html = read('default.html'),
+      is_io = path.has('io-client'),
+      html = read(is_io ? 'io-client.html' : 'default.html'),
       message = {}
 
   // favicon
@@ -55,7 +58,7 @@ require('http').createServer(function(req, res) {
   }
 
   // SSO user
-  if (path.has('sso')) message.user = test_user
+  if (path.has('sso') || is_io) message.user = test_user
   if (path.has('anon')) delete message.user
 
 
@@ -67,5 +70,5 @@ require('http').createServer(function(req, res) {
   res.write(riot.render(html, data))
   res.end()
 
-}).listen(80)
+}).listen(is_local ? 2001 : 80)
 

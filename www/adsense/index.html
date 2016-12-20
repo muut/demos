@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Setting up Muut with JavaScript</title>
+
+  <!-- Optimize for mobile versions -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Muut style -->
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+
+  <!-- Page CSS -->
+  <style>
+  body {
+     font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+     font-size: 18px; margin: 0; padding: 0;
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Ad sense -->
+  <ins
+    id="adsense"
+    class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-3089877146342214"
+    data-ad-slot="8860768282"
+    data-ad-format="auto"></ins>
+
+
+
+  <!-- Placeholder for forums -->
+  <div id="muut-forum"></div>
+
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
+
+  <!-- The JavaScript setup -->
+  <script>
+    $('#muut-forum').muut('https://muut.com/i/goma', function(app) {
+      $('#adsense').prependTo($('.m-page', app.root))
+      $.getScript("adsbygoogle.js", function() {
+        adsbygoogle.push({})
+      })
+    })
+  </script>
+
+</body>
+
+</html>

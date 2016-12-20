@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Muut IO demo</title>
+  <link rel="stylesheet" href="//muut.com/io-demo/demo.css">
+</head>
+
+<body>
+
+  <muut-demo>
+    <span class="loading">Loading...</span>
+  </muut-demo>
+
+  <script src="//muut.com/io-demo/app.html" type="riot/tag"></script>
+  <script src="//muut.com/io-demo/muutio.js"></script>
+  <script src="//muut.com/io-demo/riot.js"></script>
+
+  <script>
+    muutio({
+      path: '/playground',
+      expand_all: true,
+      api: {
+        key: '{key}',
+        timestamp: {timestamp},
+        message: '{message}',
+        signature: '{signature}'
+      }
+
+    }, function(data) {
+      riot.mount('muut-demo', { data: data, api: this })
+    })
+  </script>
+
+</body>
