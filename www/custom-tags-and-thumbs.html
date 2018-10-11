@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Custom headers in Muut forum</title>
+
+  <!-- optimize for mobile versions -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- force latest IE rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+
+  <!-- demo specific CSS -->
+  <style>
+    body {
+      font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+      font-size: 18px; margin: 0; padding: 0;
+    }
+    .tags {
+      margin: 6px 0;
+    }
+    .tags b {
+      background-color: #1283B5;
+      margin-right: 4px;
+      padding: 3px 8px;
+      color: white;
+      font-size: 80%;
+      font-weight: normal;
+      border-radius: 3px;
+    }
+
+    .thumbs img {
+      margin-right: 10px;
+      width: 45%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- muut client -->
+  <a class="muut" href="https://muut.com/i/goma/">The GoMA community (demo)</a>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="https://cdn.muut.com/1/moot.min.js"></script>
+
+
+  <!-- custom metadata logic -->
+  <script>
+  muut(function(app) {
+
+    app.on('post', function(post) {
+      var meta = post.meta && post.meta.public
+      if (!meta) return
+
+      // render tags
+      if (meta.str_tags) {
+        var root = $('<div>').addClass('tags').appendTo($('.m-meta', post.root))
+
+        meta.str_tags.forEach(function(tag) {
+          root.append($('<b>', { text: tag }))
+        })
+      }
+
+      // render thumbs
+      if (meta.str_thumbs) {
+        var root = $('<div>').addClass('thumbs').prependTo($('.m-body', post.root))
+
+        meta.str_thumbs.forEach(function(thumb) {
+          root.append($('<img>', { src: thumb }))
+        })
+      }
+
+    })
+
+  })
+  </script>
+</body>

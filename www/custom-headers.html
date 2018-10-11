@@ -139,8 +139,6 @@
       var channelName = page.relativePath.replace(/[^\w-]/g, '') || 'all',
           banner = $('#banner-' + channelName)
 
-      console.info(channelName)
-
       wrap.html(banner.html()).toggle(!!banner[0])
     })
   })
